@@ -4,20 +4,17 @@ import com.company.momento.Caretaker;
 import com.company.momento.Editor;
 import com.company.momento.Memento;
 import com.company.momento.Originator;
+import com.company.state.Canvas;
+import com.company.state.SelectionTool;
 
 public class Main {
 
 
     public static void main(String[] args) {
-         var editor = new Originator();
-         var caretaker = new Caretaker();
-         editor.setContent("a");
-         caretaker.push(editor.createState());
-         editor.setContent("b");
-        caretaker.push(editor.createState());
-        editor.setContent("c");
-        editor.restore(caretaker.pop());
-        System.out.println(editor.getContent());
+            var canvas = new Canvas();
+            canvas.setCurrentTool(new SelectionTool());
+            canvas.mouseDown();
+            canvas.mouseUp();
 
     }
 
